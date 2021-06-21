@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>节流防抖</title>
+    <script src="index.js"></script>
+    <style>
+      #app {
+        width: 200px;
+        height: 8000px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1 节流：函数固定时间内，只能触发一次 -->
+    <div id="app"></div>
+    <script>
+      let a = 1;
+      document.addEventListener(
+        "scroll",
+        throttle(() => {
+          console.log("节流", a++);
+        }, 1000),
+        false
+      );
+
+      document.addEventListener(
+        "scroll",
+        debounce(() => {
+          console.log("防抖", a++);
+        }, 1000),
+        false
+      );
+    </script>
+  </body>
+</html>
